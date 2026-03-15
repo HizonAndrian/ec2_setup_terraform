@@ -1,8 +1,12 @@
 resource "aws_instance" "ec2_instance_main" {
-  ami           = data.aws_ami.amzn_linux_2023.id
-  instance_type = "t3.micro"
+  for_each          = var.instance_config
+  instance_type     = each.value.instance_type
+  ami               = local.amis[each.value.ami]
+  availability_zone = each.value.a_zone
+
+  subnet_id = aws_subnet.main_subnet[each.value.subnet].id
 
   tags = {
-    Name = "Terraform_project"
+    Name = each.key
   }
 }
