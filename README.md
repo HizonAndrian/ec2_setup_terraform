@@ -6,6 +6,9 @@ Initialize git locally
 
 Create a workspace in Terraform cloud
 
+# For generating a keypair
+ssh-keygen -t rsa -b 4096 -f ./my-devops-key
+
 How to get the AMI
  - Go to EC2 in AWS console
  - Click on AMI Catalog in the left sidebar

@@ -24,8 +24,7 @@ data "aws_ami" "ubuntu" {
   owners      = ["099720109477"]
 
   filter {
-    name = "name"
-    # Matches the standard AL2023 naming pattern
+    name   = "name"
     values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-20251212"]
   }
 
@@ -38,4 +37,8 @@ data "aws_ami" "ubuntu" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
+}
+
+data "http" "my_ip" {
+  url = "https://checkip.amazonaws.com/"
 }
