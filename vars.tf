@@ -14,3 +14,8 @@ variable "subnet_config" {
     a_zone     = string
   }))
 }
+
+variable "manual_ip" {
+  type        = string
+  description = "My own IP."
+}

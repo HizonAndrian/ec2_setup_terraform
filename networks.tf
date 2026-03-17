@@ -28,6 +28,8 @@ resource "aws_internet_gateway" "main_igw" {
 resource "aws_route_table" "main_route_tbl" {
   vpc_id = aws_vpc.main_vpc.id
 
+  # Directs all non-local traffic to the internet gateway.connection {
+  # This makes associated subnets "Public"
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.main_igw.id

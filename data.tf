@@ -38,7 +38,3 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 }
-
-data "http" "my_ip" {
-  url = "https://checkip.amazonaws.com/"
-}
