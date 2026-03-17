@@ -9,7 +9,7 @@ resource "aws_instance" "ec2_instance_main" {
   associate_public_ip_address = true
 
   # IAM Role
-  key_name  = aws_key_pair.main_kp.key_name
+  key_name = aws_key_pair.main_kp.key_name
 
   # User data 
   user_data = file("${path.module}/bootstrap.sh")
